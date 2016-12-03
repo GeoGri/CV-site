@@ -1,0 +1,176 @@
+/*--------------------- VARIABLES --------------------*/
+:root {
+	--my-red: #de3926;
+	--my-gray: #949494;
+	--my-dark-gray: #222;
+}
+
+/*--------------------- GLOBAL --------------------*/
+html {
+    height:100%;
+}
+
+body {
+	height: 100vh;
+}
+
+.container-fluid {
+    padding-left: 0px;
+}
+
+.row {
+	margin-right: 0px;
+}
+
+.margin-left-0 {
+	margin-left: 0;
+}
+
+.relative {
+	position: relative;
+}
+
+.full-width-div {
+	display: block;
+	position: fixed;
+	width: 50%;
+	height: 80%;
+	padding: 0;
+	margin: 0 auto;
+}
+
+.tooltip.top .tooltip-inner{
+	max-width: 310px;
+	padding: 1em 2em;
+	color: white;
+	font-size: 25px;
+	text-align: center;
+	background: var(--my-red);
+	border-color: var(--my-red);
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+.tooltip.top .tooltip-arrow {
+  border-width: 0px 0px 0px;
+}
+
+.tooltip.bottom .tooltip-inner{
+	max-width: 310px;
+	padding: 1em 2em;
+	color: white;
+	font-size: 25px;
+	text-align: center;
+	background: var(--my-dark-gray);
+	border-color: var(--my-dark-gray);
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+.tooltip.bottom .tooltip-arrow {
+  border-width: 0px 0px 0px;
+}
+
+/*--------------------- NAVBAR --------------------*/
+nav {
+	background-color: var(--my-dark-gray);
+}
+
+.fa {
+	font-size: 52px;
+	color: var(--my-gray);
+}
+
+ul {
+	margin: 0;
+	list-style-type: none;
+}
+
+li {
+	display: inline;
+}
+
+li a {
+	text-decoration: none;
+	padding: 0.5em;
+}
+
+li a:hover {
+	text-decoration: none;
+	color: white;
+}
+
+/*--------------------- SECTION-HOME --------------------*/
+
+.home-name {
+	background: url(images/section/home-1.jpg) no-repeat center;
+}
+
+.home-surname {
+	background: url(images/section/home-2.jpg) no-repeat center;
+}
+
+.home-name, .home-surname {
+	background-size: 100% 100%;
+	background-repeat: none;
+}
+
+.name {
+	background-color: var(--my-red);
+	float: right;
+}
+
+.surname {
+	background-color: var(--my-dark-gray);
+}
+
+.profession {
+	color: var(--my-dark-gray);
+}
+
+.social_network {
+	position: absolute;
+	bottom: 0;
+	margin-bottom: 50px;
+}
+
+.social_network a img {
+	width: 25px;
+	height: 25px;
+}
+
+.name, .surname {
+	color: white;
+}
+
+.profession, .social_network a {
+	background-color: white;
+}
+
+.name, .surname, .profession {
+	margin-top: 50px;
+}
+
+.surname, .profession, .social_network a {
+	float: left;
+}
+
+.name, .surname, .profession, .social_network a {
+	padding: 1em 2em 1em 2em;
+}
+
+.zzz {
+	height: 1500px;
+	padding: 0;
+}
+
+/*--------------------- SECTION-ABOUT --------------------*/
+/*
+.about-first {
+	background: url(images/section/about-1.jpg);
+}
+
+.about-second {
+
+}
+

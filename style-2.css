@@ -1,0 +1,226 @@
+/*
+	TODO:
+			tooltip - navbar
+			navbar a - po kliknięciu color, text decoration
+
+*/
+
+/*------------------------------------- VARIABLES ---------------------------------*/
+:root {
+	--my-red: #de3926;
+	--my-gray: #949494;
+	--my-bright-gray: #dbdbdb;
+	--my-dark-gray: #222;
+}
+/*------------------------------------- GLOBAL ------------------------------------*/
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    font-family: 'Suez One', serif;
+    
+}
+table {
+	margin: 10px;
+    width: 100%;
+}
+tr {
+	border-top:1px solid var(--my-bright-gray);
+}
+td, th {
+    text-align: left;
+    padding: 8px;
+}
+td span {
+	font-family: 'Suez One', serif;
+}
+.red {
+	color: var(--my-red);
+}
+.gray {
+	color: var(--my-gray);
+}
+.dark-gray {
+	color: var(--my-dark-gray);
+}
+.bright-gray {
+	color: var(--my-bright-gray);
+}
+.title {
+	border-bottom: 5px solid var(--my-red);
+	padding-bottom: 20px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.padding {
+	padding: 50px;
+}
+.border {
+	border-bottom: 1px solid var(--my-bright-gray);
+}
+.container-fluid {
+	margin-left: 98.575px;
+	padding: 0;
+}
+.row, .section {
+	margin: 0;
+}
+.overflow {
+	overflow: auto;
+}
+.tooltip.top .tooltip-inner{
+	max-width: 310px;
+	padding: 1em 2em;
+	color: white;
+	font-size: 25px;
+	text-align: center;
+	background: var(--my-red);
+	border-color: var(--my-red);
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+.tooltip.top .tooltip-arrow {
+  border-width: 0px 0px 0px;
+}
+.about-r, .resume-r, .contact-r {
+	min-height: 100%;
+}
+.container-fluid, .row.content, .div-hight, .contact-l, .left, .right {
+ 	height: 100%;
+ 	padding: 0;
+}
+/*------------------------------------- NAVBAR ------------------------------------*/
+.fa {
+	font-size: 30px;
+	color: var(--my-gray);
+}
+ul {
+	background-color: var(--my-dark-gray);
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+}
+li {
+	text-align: center;
+	border-bottom: 1px groove var(--my-gray);
+}
+li a:hover {
+	color: white;
+}
+li a, li a:hover {
+	display: block;
+	text-decoration: none;
+	padding: 1em;
+}
+li a.active {
+	color: white;
+}
+/*------------------------------------- SECTION-HOME ------------------------------*/
+/*------------------------------ GLOBAL --------------------------*/
+.name, .surname {
+	color: white;
+}
+.profession , .social-network {
+	background-color: white;
+}
+.profession, .social-network a {
+	color: var(--my-dark-gray);
+}
+.name, .surname, .profession{
+	padding: 1em 2em;
+}
+.name, .surname, .profession, .social-network {
+	position: absolute;
+	opacity: 0;
+}
+/*------------------------------ LEFT-SITE ----------------------*/
+.home-l {
+	background: url(images/section/home-1.jpg) no-repeat center ;
+}
+.name {
+	background-color: var(--my-red);
+	right: 0;
+	top: 250px;
+}
+/*------------------------------ RIGHT-SITE ---------------------*/
+.home-r {
+	background: url(images/section/home-2.jpg) no-repeat center;
+}
+.surname {
+	background-color: var(--my-dark-gray);
+	left: 0;
+	top: -250px;
+}
+.profession {
+	left: -250px;
+	margin-top: 200px;
+}
+.social-network {
+	margin-top: 500px;
+	margin-bottom: 50px;
+	top: 250px;
+}
+.social-network a {
+	padding: 0.5em 1em;
+	text-decoration: none;
+}
+.social-network a:hover {
+	color: var(--my-red);
+}
+/*------------------------------------- SECTION-ABOUT -----------------------------*/
+/*------------------------------ LEFT-SITE -----------------------*/
+.about-l {
+	background: url(images/section/about-1.jpg) no-repeat center;
+}
+/*------------------------------ RIGHT-SITE ----------------------*/
+.img-about {
+	text-decoration: none;
+	text-align: center;
+	font-size: 150px;
+}
+/*------------------------------------- SECTION-RESUME ----------------------------*/
+/*------------------------------ LEFT-SITE -----------------------*/
+.resume-l {
+	background: url(images/section/resume-1.jpg) no-repeat center;
+}
+/*------------------------------ RIGHT-SITE ----------------------*/
+div p {
+	font-weight: lighter;
+	color: var(--my-gray);
+}
+#study-date {
+	color: var(--my-bright-gray);
+	margin-top: 0;
+	margin-left: 0;
+}
+/*------------------------------------- SECTION-CONTACT ---------------------------*/
+/*------------------------------ LEFT-SITE -----------------------*/
+#map {
+ height:100%;
+}
+/*------------------------------ RIGHT-SITE ----------------------*/
+#p-contact {
+	padding: 50px 0;
+	margin: 10px;
+}
+#email {
+	color: var(--my-red);
+	text-decoration: none;
+}
+#p-contact, #email:hover,.form-horizontal label {
+	color: var(--my-gray);
+}
+.form-horizontal {
+	padding: 10px;
+}
+/*------------------------------ BACKGROUND-SIZE ----------------------------------*/
+.home-l, .home-r, .about-l, .resume-l {
+	height: 100%;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

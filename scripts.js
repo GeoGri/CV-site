@@ -1,23 +1,36 @@
 $(window).bind("load", function(){
-	/*---------------- START-ANIMATE -----------------*/
-	$('.name').animate({top: '0', opacity: '1'}, 'slow');
-	$('.surname').animate({top: '0', opacity: '1'}, 'slow');
-	setTimeout(function(){
-		$('.profession').animate({left: '0', opacity: '1'}, 'slow');
-		$('.social-network').animate({top: '0', opacity: '1'}, 'slow');
-	}, 500);
+	/*------------------ START-SITE ------------------*/
+	animateHome();
 	/*------------------ GOOGLE-MAP ------------------*/
 	myMap();
 	/*-------------------- NAV-BAR -------------------*/
 	$('.menu').click(function(){
 		$('.menu').removeClass('active');
 		var item = $(this).addClass('active');
-		$('.section').hide();
-		$(item.attr('href') + ', ' + item.attr('href') + '-1').show();
+		var id = item.attr('href');
+		$('.left' + ', ' + '.right').hide();
+		if (id.substr(1) !== 'home') {
+			$(id + '1').css({
+				'position' : 'absolute',
+				'top' : '0',
+				'left' : '0',
+				'right' : '0'
+			});
+		}
+		$(id + ', ' + id + '-1').show();
 	});
 	/*---------------- SOCIAL-NETWORK ----------------*/
 	$('[data-toggle="tooltip"]').tooltip();
 });
+
+function animateHome(){
+	$('.name').animate({top: '0', opacity: '1'}, 'slow');
+	$('.surname').animate({top: '0', opacity: '1'}, 'slow');
+	setTimeout(function(){
+		$('.profession').animate({left: '0', opacity: '1'}, 'slow');
+		$('.social-network').animate({top: '0', opacity: '1'}, 'slow');
+	}, 500);
+}
 
 function myMap() {
 	var myPosition = new google.maps.LatLng(50.042572,19.928030000000035);

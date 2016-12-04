@@ -18,7 +18,7 @@ html, body {
     width: 100%;
     margin: 0px;
     font-family: 'Suez One', serif;
-    
+    overflow: hidden;
 }
 table {
 	margin: 10px;
@@ -68,6 +68,9 @@ td span {
 .overflow {
 	overflow: auto;
 }
+.relative {
+	position: relative;
+}
 .tooltip.top .tooltip-inner{
 	max-width: 310px;
 	padding: 1em 2em;
@@ -85,7 +88,7 @@ td span {
 .about-r, .resume-r, .contact-r {
 	min-height: 100%;
 }
-.container-fluid, .row.content, .div-hight, .contact-l, .left, .right {
+.container-fluid, .row.content, .div-hight, .contact-l, .left-col, .right-col {
  	height: 100%;
  	padding: 0;
 }

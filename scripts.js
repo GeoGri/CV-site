@@ -3,20 +3,87 @@ $(window).bind("load", function(){
 	animateHome();
 	/*------------------ GOOGLE-MAP ------------------*/
 	myMap();
+
+	/*--------------- SIZE OF SECTIONS ---------------*/
+	var previousSection = 0;
+	var sections = ['home', 'about', 'resume', 'contact'];
+	var positions = {
+		homeTop : 0,
+		homeBootom :0,
+		aboutTop : 0,
+		aboutBootom : 0,
+		resumeTop : 0,
+		resumeBootom :0,
+		contactTop : 0,
+		contactBootom : 0,
+	};
+
+	for (var i = 0; i < sections.length; i++) {
+		var sec = $('#'+sections[i]+'-1');
+		console.log('#'+sections[i]+'-1');								/*LOGGGGGGG*/
+		for (var j = 0; j < 2; j++) {
+			positions[sections[j] + 'Top'] = sec.offset().top;
+			positions[sections[j] + 'Bootom'] = sec.height();
+		}
+	}
+
+
+
 	/*-------------------- NAV-BAR -------------------*/
-	$('.menu').click(function(){
+	$('.menu').on('click', function(event){
+		/*-------------- Focus nav btn ---------------*/
 		$('.menu').removeClass('active');
 		var item = $(this).addClass('active');
+
+
+		var presentSection = item.attr('id').substr(-1);
+		console.log(presentSection);									/*LOGGGGGGG*/
+		if (previousSection < presentSection) {
+			for (i = previousSection + 1, top = -768; i <= presentSection; i++, top-= 768) {
+				var rowSections = $('#'+ sections[i] + ', #' + sections[i] + '-1');
+				console.log(rowSections);								/*LOGGGGGGG*/
+				rowSections[0].css({
+					'position' : 'absolute',
+					'top' : top,
+					'left' : '0',
+					'right' : '0'
+				}).show();
+				rowSections[1].css({
+					'position' :'absolute',
+					'top' : abs(top),
+					'left' : '0',
+					'right' : '0'
+				});
+			}
+		} 
+		/*else (previousSection > presentSection) {
+			//TODO...
+		}*/
+
+
+		/*----- Set the static position -----*/
+		$('.left, .right').css({
+				'position' : 'absolute',
+				'bottom' : '0',
+				'left' : '0',
+				'right' : '0'
+			});
+
+
+
+
+
+		/*----- Propertly showing single section -----*/
 		var id = item.attr('href');
 		$('.left' + ', ' + '.right').hide();
-		if (id.substr(1) !== 'home') {
+		//if (id.substr(1) !== 'home') {
 			$(id + '1').css({
 				'position' : 'absolute',
 				'top' : '0',
 				'left' : '0',
 				'right' : '0'
 			});
-		}
+		//}
 		$(id + ', ' + id + '-1').show();
 	});
 	/*---------------- SOCIAL-NETWORK ----------------*/

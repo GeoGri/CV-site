@@ -15,12 +15,15 @@
 </head>
 <body>
     <!-- - - - - - - - - - - - - - - - - - - -NAVBAR - - - - - - - - - - - - - - - -->
-	<ul>
-		<li><a class="fa fa-home active menu" href="#home"></a></li>
-		<li><a class="fa fa-user menu" href="#about"></a></li>
-		<li><a class="fa fa-graduation-cap menu" href="#resume"></a></li>
-		<li><a class="fa fa-send menu" href="#contact"></a></li>
-	</ul>
+    <div class="nav">
+    	<ul>
+			<li><a id="nav-0" class="fa fa-home active menu" href="#home"></a></li>
+			<li><a id="nav-1" class="fa fa-user menu" href="#about"></a></li>
+			<li><a id="nav-2" class="fa fa-graduation-cap menu" href="#resume"></a></li>
+			<li><a id="nav-3" class="fa fa-send menu" href="#contact"></a></li>
+		</ul>
+    </div>
+	
     <!-- - - - - - - - - - - - - - - - - -CONTENT- - - - - - - - - - - - - - - - - -->
 	<div class="container-fluid">
 		<div class="row content">
@@ -37,56 +40,59 @@
 			</div>
             <!-- - - - - - - - RIGHT- - - - - - - - - - -->
 			<div class="col-md-6 right-col">
-				<div id="home-1" class="div-hight right">						
-					<section class="home-r row">
-						<div class="clearfix">
-							<h1 class="surname">Wojda</h1>
-						</div>
-						<div class="clearfix">
-							<h2 class="profession">Web Designer
-								<span class="red"> & </span> Developer</h2>
-						</div>
-						<div class="clearfix social-network">
-							<a class="fa fa-facebook" href="https://www.facebook.com/Gri.Geo" data-toggle="tooltip" data-placement="top" title="FACEBOOK"></a>
-							<a class="fa fa-google" href="https://www.plus.google.com/108704893739736467557" data-toggle="tooltip" data-placement="top" title="GOOGLE"></a>
-							<a class="fa fa-github" href="https://www.github.com/GeoGri" data-toggle="tooltip" data-placement="top" title="GITHUB"></a>
-							<a class="fa fa-linkedin" href="https://pl.linkedin.com/in/grzegorz-wojda-673058b9" data-toggle="tooltip" data-placement="top" title="LINKEDIN"></a>
-						</div>
-					</section>		
-				</div>
-				<div id="about-1" class="div-hight overflow right">
-					<section class="about-r">
-						<div class="padding">
+				<div id="contact-1" class="div-hight overflow right">
+					<section class="contact-r">
+						<div class="padding border">
 							<div class="row">
-								<h1 class="title col-md-6 col-md-offset-3">ABOUT ME</h1>
-								<h1 class="fa fa-user col-md-6 col-md-offset-3 img-about"></h1>
+								<h1 class="title col-md-6 col-md-offset-3">CONTACT</h1>
 							</div>
-							<div style="padding-top: 50px;">
-								<table class="gray">
-									<tr>
-										<td class="fa fa-user-circle"><span> Name</span></td>
-										<td class="text-right">Grzegorz Wojda</td>
-									</tr>
-									<tr>
-										<td class="fa fa-male"><span> Birthday</span></td>
-										<td class="text-right">08 september 1992</td>
-									</tr>
-									<tr>
-										<td class="fa fa-language"><span> Language</span></td>
-										<td class="text-right">English (C2)</td>
-									</tr>
-									<tr>
-										<td class="fa fa-futbol-o"><span> Hobby</span></td>
-										<td class="text-right">Motorbikes, Girls</td>
-									</tr>
-									<tr>
-										<td class="fa fa-id-card"><span> Driver licence</span></td>
-										<td class="text-right">A, B</td>
-									</tr>
-								</table>
+							<p id="p-contact">Interested in working together, or have any questions, please feel free to drop me a line in the form bellow the data addres. If you don't get an answer immediately, I might just be travelling through the middle of nowhere. I'll get back to you as soon as I can. I promise!</p>
+							<table class="gray">
+								<tr>
+									<td class="fa fa-phone-square"><span> Home</span></td>
+									<td class="text-right">(+46) 815-17-33</td>
+								</tr>
+								<tr>
+									<td class="fa fa-phone-square"><span> Mobile</span></td>
+									<td class="text-right">(+48) 691-037-281</td>
+								</tr>
+								<tr>
+									<td class="fa fa-envelope"><span> E-mail</span></td>
+									<td class="text-right"a href="#" id="email">grzegorz1wodja<span class="red">@</span>gmail.com</a></td>
+								</tr>
+								<tr>
+									<td class="fa fa-address-card"><span> Addres</span></td>
+									<td class="text-right">15/56 Słomiana St, 36-316 Kraków</td>
+								</tr>
+							</table>
+						</div>
+						<div>
+						<div class="padding border">
+							<div>
+								<div class="row">
+								<h1 class="title col-md-6 col-md-offset-3">GET IN TOUCH</h1>
+							</div>
+							<div class="form-horizontal">
+								<label for="text">Name:</label>
+								<input type="text" id="name" class="form-control" placeholder="Jan Kowalski">
+							</div>
+							<div class="form-horizontal">
+								<label for="phone">Phone number:</label>
+								<input type="phone" id="phone" class="form-control" placeholder="785-332-123">
+							</div>
+							<div class="form-horizontal">
+								<label for="email">Email:</label>
+								<input type="email" id="email" class="form-control" placeholder="jan.kowlski@email.com">
+							</div>
+							<div class="form-horizontal">
+								<label for="text">Message:</label>
+								<textarea type="text" id="name" class="form-control" placeholder="Type your message..."></textarea>
+							</div>
+							<div class="form-horizontal">
+								<button type="submit" class="btn btn-danger">Submit</button>
 							</div>
 						</div>
-					</section>		
+					</section>
 				</div>
 				<div id="resume-1" class="div-hight overflow right">
 					<section class="resume-r">
@@ -161,59 +167,56 @@
 						</div>
 					</section>
 				</div>
-				<div id="contact-1" class="div-hight overflow right">
-					<section class="contact-r">
-						<div class="padding border">
+				<div id="about-1" class="div-hight overflow right">
+					<section class="about-r">
+						<div class="padding">
 							<div class="row">
-								<h1 class="title col-md-6 col-md-offset-3">CONTACT</h1>
+								<h1 class="title col-md-6 col-md-offset-3">ABOUT ME</h1>
+								<h1 class="fa fa-user col-md-6 col-md-offset-3 img-about"></h1>
 							</div>
-							<p id="p-contact">Interested in working together, or have any questions, please feel free to drop me a line in the form bellow the data addres. If you don't get an answer immediately, I might just be travelling through the middle of nowhere. I'll get back to you as soon as I can. I promise!</p>
-							<table class="gray">
-								<tr>
-									<td class="fa fa-phone-square"><span> Home</span></td>
-									<td class="text-right">(+46) 815-17-33</td>
-								</tr>
-								<tr>
-									<td class="fa fa-phone-square"><span> Mobile</span></td>
-									<td class="text-right">(+48) 691-037-281</td>
-								</tr>
-								<tr>
-									<td class="fa fa-envelope"><span> E-mail</span></td>
-									<td class="text-right"a href="#" id="email">grzegorz1wodja<span class="red">@</span>gmail.com</a></td>
-								</tr>
-								<tr>
-									<td class="fa fa-address-card"><span> Addres</span></td>
-									<td class="text-right">15/56 Słomiana St, 36-316 Kraków</td>
-								</tr>
-							</table>
-						</div>
-						<div>
-						<div class="padding border">
-							<div>
-								<div class="row">
-								<h1 class="title col-md-6 col-md-offset-3">GET IN TOUCH</h1>
-							</div>
-							<div class="form-horizontal">
-								<label for="text">Name:</label>
-								<input type="text" id="name" class="form-control" placeholder="Jan Kowalski">
-							</div>
-							<div class="form-horizontal">
-								<label for="phone">Phone number:</label>
-								<input type="phone" id="phone" class="form-control" placeholder="785-332-123">
-							</div>
-							<div class="form-horizontal">
-								<label for="email">Email:</label>
-								<input type="email" id="email" class="form-control" placeholder="jan.kowlski@email.com">
-							</div>
-							<div class="form-horizontal">
-								<label for="text">Message:</label>
-								<textarea type="text" id="name" class="form-control" placeholder="Type your message..."></textarea>
-							</div>
-							<div class="form-horizontal">
-								<button type="submit" class="btn btn-danger">Submit</button>
+							<div style="padding-top: 50px;">
+								<table class="gray">
+									<tr>
+										<td class="fa fa-user-circle"><span> Name</span></td>
+										<td class="text-right">Grzegorz Wojda</td>
+									</tr>
+									<tr>
+										<td class="fa fa-male"><span> Birthday</span></td>
+										<td class="text-right">08 september 1992</td>
+									</tr>
+									<tr>
+										<td class="fa fa-language"><span> Language</span></td>
+										<td class="text-right">English (C2)</td>
+									</tr>
+									<tr>
+										<td class="fa fa-futbol-o"><span> Hobby</span></td>
+										<td class="text-right">Motorbikes, Girls</td>
+									</tr>
+									<tr>
+										<td class="fa fa-id-card"><span> Driver licence</span></td>
+										<td class="text-right">A, B</td>
+									</tr>
+								</table>
 							</div>
 						</div>
-					</section>
+					</section>		
+				</div>
+				<div id="home-1" class="div-hight right">						
+					<section class="home-r row">
+						<div class="clearfix">
+							<h1 class="surname">Wojda</h1>
+						</div>
+						<div class="clearfix">
+							<h2 class="profession">Web Designer
+								<span class="red"> & </span> Developer</h2>
+						</div>
+						<div class="clearfix social-network">
+							<a class="fa fa-facebook" href="https://www.facebook.com/Gri.Geo" data-toggle="tooltip" data-placement="top" title="FACEBOOK"></a>
+							<a class="fa fa-google" href="https://www.plus.google.com/108704893739736467557" data-toggle="tooltip" data-placement="top" title="GOOGLE"></a>
+							<a class="fa fa-github" href="https://www.github.com/GeoGri" data-toggle="tooltip" data-placement="top" title="GITHUB"></a>
+							<a class="fa fa-linkedin" href="https://pl.linkedin.com/in/grzegorz-wojda-673058b9" data-toggle="tooltip" data-placement="top" title="LINKEDIN"></a>
+						</div>
+					</section>		
 				</div>						
 			</div>
 		</div>

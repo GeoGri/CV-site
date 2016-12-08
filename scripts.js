@@ -1,98 +1,133 @@
+/*----------------------- VARIABLES ------------------*/
+var previousSection = 0;
+
+
+var sections = ['home', 'about', 'resume', 'contact'];
+
 $(window).bind("load", function(){
-	/*------------------ START-SITE ------------------*/
 	animateHome();
-	/*------------------ GOOGLE-MAP ------------------*/
 	myMap();
-
-	/*--------------- SIZE OF SECTIONS ---------------*/
-	var previousSection = 0;
-	var sections = ['home', 'about', 'resume', 'contact'];
-	var positions = {
-		homeTop : 0,
-		homeBootom :0,
-		aboutTop : 0,
-		aboutBootom : 0,
-		resumeTop : 0,
-		resumeBootom :0,
-		contactTop : 0,
-		contactBootom : 0,
-	};
-
-	for (var i = 0; i < sections.length; i++) {
-		var sec = $('#'+sections[i]+'-1');
-		console.log('#'+sections[i]+'-1');								/*LOGGGGGGG*/
-		for (var j = 0; j < 2; j++) {
-			positions[sections[j] + 'Top'] = sec.offset().top;
-			positions[sections[j] + 'Bootom'] = sec.height();
-		}
-	}
-
-
-
 	/*-------------------- NAV-BAR -------------------*/
-	$('.menu').on('click', function(event){
-		/*-------------- Focus nav btn ---------------*/
+	$('.menu').on('click', function(e){
+		e.preventDefault();
+		var left = false;
 		$('.menu').removeClass('active');
 		var item = $(this).addClass('active');
 
+		var presentSection = parseInt(item.attr('id').substr(-1));	
 
-		var presentSection = item.attr('id').substr(-1);
-		console.log(presentSection);									/*LOGGGGGGG*/
+		if (presentSection === previousSection)
+			return false; 
+
+		//clearAll(left);
+		console.log('previousSection ' + previousSection + ', presentSection ' + presentSection);
+		console.log('mnożnik ' + Math.abs(previousSection - presentSection));
+		var toShow = '';
 		if (previousSection < presentSection) {
-			for (i = previousSection + 1, top = -768; i <= presentSection; i++, top-= 768) {
-				var rowSections = $('#'+ sections[i] + ', #' + sections[i] + '-1');
-				console.log(rowSections);								/*LOGGGGGGG*/
-				rowSections[0].css({
+			for (var i = previousSection + 1; i <= presentSection; i++)
+				toShow += '#' + sections[i] + ',#' + sections[i] + '-1,';
+			console.log('Change position to absolute right column '+$('#' + sections[previousSection] + '-1').attr('id')+' '+768 * Math.abs(previousSection - presentSection));
+			/*$('#' + sections[previousSection] + '-1').css({
 					'position' : 'absolute',
-					'top' : top,
+					'top' : 768 * Math.abs(previousSection - presentSection),
 					'left' : '0',
-					'right' : '0'
-				}).show();
-				rowSections[1].css({
-					'position' :'absolute',
-					'top' : abs(top),
+					'right' : '0',
+			});*/
+		} else if (previousSection > presentSection) {
+			for (var i = previousSection - 1; i >= presentSection; i--)
+				toShow += '#' + sections[i] + ',#' + sections[i] + '-1,';
+			console.log('Change position to absolute left column '+$('#' + sections[previousSection]).attr('id')+' '+768 * Math.abs(previousSection - presentSection));
+			/*$('#' + sections[previousSection]).css({
+					'position' : 'absolute',
+					'top' : 768 * Math.abs(previousSection - presentSection),
 					'left' : '0',
-					'right' : '0'
-				});
-			}
-		} 
-		/*else (previousSection > presentSection) {
-			//TODO...
-		}*/
+					'right' : '0',
+			});*/
+			left = true;
+		}
+		toShow = toShow.substr(0, toShow.length - 1);
+
+		
+		
+		console.log('sections to show : ' + toShow);
+		$(toShow).removeClass('disp-non');
+
+		
+		
+
+		
+		
+		if(left){
+			console.log('Scroll top position left section to previous: '+ $('#' + sections[previousSection]).attr('id')+ ' ' + $('#' + sections[previousSection]).position().top);
+			$('.child-left').scrollTop($('#' + sections[previousSection]).position().top);
+		}
+		else{
+			console.log('Scroll top position right section to previous: '+ $('#' + sections[previousSection] + '-1').attr('id')+ ' ' + $('#' + sections[previousSection] + '-1').position().top);
+			$('.child-right').scrollTop($('#' + sections[previousSection] + '-1').position().top);
+		}
 
 
-		/*----- Set the static position -----*/
-		$('.left, .right').css({
-				'position' : 'absolute',
-				'bottom' : '0',
-				'left' : '0',
-				'right' : '0'
-			});
 
+		console.log('Animate to: \n  -left '+$('#' + sections[presentSection]).attr('id') + ' ' + $('#' + sections[presentSection]).position().top);
+		console.log('  -right ' +$('#' + sections[presentSection]).attr('id') + ' ' + $('#' + sections[presentSection] + '-1').position().top);
+		$('.child-left').stop().animate({
+			scrollTop : $('#' + sections[presentSection]).position().top
+		},{
+			duration: 3000,
+    		queue: false,
+		});
+		$('.child-right').stop().animate({
+			scrollTop : $('#' + sections[presentSection] + '-1').position().top
+		},{
+			duration: 3000,
+    		queue: false,
+    		complete: function(){
+			//$('.child-right').css('overflow-y', 'hidden');
+						var toHide = '';
+						for (var i = 0; i < sections.length; i++)
+						if(i !== presentSection)
+							toHide += '#' + sections[i] + ',#' + sections[i] + '-1,';
+				
+						toHide = toHide.substr(0, toHide.length - 1);
+						$(toHide).addClass('disp-non');
+					}
+		});
 
+		
+		previousSection = presentSection;
 
-
-
-		/*----- Propertly showing single section -----*/
-		var id = item.attr('href');
-		$('.left' + ', ' + '.right').hide();
-		//if (id.substr(1) !== 'home') {
-			$(id + '1').css({
-				'position' : 'absolute',
-				'top' : '0',
-				'left' : '0',
-				'right' : '0'
-			});
-		//}
-		$(id + ', ' + id + '-1').show();
+		return false;
 	});
 	/*---------------- SOCIAL-NETWORK ----------------*/
 	$('[data-toggle="tooltip"]').tooltip();
+	return false;
 });
 
+function clearAll(left){
+	if(left) {
+				$('#' + sections[previousSection]).css({
+					'position' : 'static',
+					'height' : 768
+				});
+			}
+			else
+				$('#' + sections[previousSection] + '-1').css({
+					'position' : 'static',
+					'height' : 768
+				});
+
+
+			var toHide = '';
+			for (var i = 0; i < sections.length; i++)
+				if(i !== presentSection)
+					toHide += '#' + sections[i] + ',#' + sections[i] + '-1,';
+			toHide = toHide.substr(0, toHide.length - 1);
+			$(toHide).hide();
+			$('.child-left, .child-left').scrollTop(0);
+}
+
 function animateHome(){
-	$('.name').animate({top: '0', opacity: '1'}, 'slow');
-	$('.surname').animate({top: '0', opacity: '1'}, 'slow');
+	$('.name, .surname').animate({top: '0', opacity: '1'}, 'slow');
 	setTimeout(function(){
 		$('.profession').animate({left: '0', opacity: '1'}, 'slow');
 		$('.social-network').animate({top: '0', opacity: '1'}, 'slow');
